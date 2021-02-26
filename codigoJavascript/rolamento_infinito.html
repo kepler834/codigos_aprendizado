@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>rolamento - infinto</title>
+        <style>
+            .bloco{
+                width: 100%;
+                height: 200px;
+                background: rgb(125,125,150);
+                font-size: 30px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bloco"></div>
+        <script>
+            var scroll_position = 0
+            for (var i = 0; i < 3; i++) {
+                new_block()
+            }
+            document.addEventListener("scroll", function(){
+                if(document.body.getBoundingClientRect().top < scroll_position){
+                    new_block()
+                }
+                scroll_position = document.body.getBoundingClientRect().top
+            })
+
+            function new_block(){
+                let novo_elemento = document.createElement("div");
+                novo_elemento.setAttribute("class","bloco")
+                document.body.appendChild(novo_elemento)
+                mudar_cor()
+            }
+
+            function mudar_cor(){
+                let randomColor = Math.floor(Math.random()*16777215).toString(16);
+                let block = document.body.getElementsByClassName("bloco")
+                block[block.length-1].style.background = "#" + randomColor
+            }
+
+        </script>
+    </body>
+</html>

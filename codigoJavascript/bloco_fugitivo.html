@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>mini-game</title>
+        <style media="screen">
+            body{
+                background: rgb(255,255,255)
+            }
+            .quadrado{
+                background: rgb(255,0,0);
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                top: 0px; left: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="quadrado" id="bloco" onclick="change()" ></div>
+        <script>
+        var posicao = window.document.getElementById("bloco")
+        function deslocamento(i, j){
+                posicao.style.top = i.toString()+"px"
+                posicao.style.left = j.toString()+"px"
+        }
+        function change(){
+            deslocamento(Math.floor(Math.random() * 500), Math.floor(Math.random() * 500))
+        }
+        </script>
+    </body>
+</html>
